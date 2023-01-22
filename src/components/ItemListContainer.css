@@ -1,0 +1,13 @@
+h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: monospace;
+    font-size:xxx-large;
+    margin-top: 5%;
+
+}
+
+.ItemList {
+    text-align: center;
+}
