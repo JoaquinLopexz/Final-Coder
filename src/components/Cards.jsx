@@ -3,7 +3,7 @@ import { useContext, useEffect } from "react";
 import { GlobalContext } from "./Context/CardContext";
 import './Cards.css'
 import { Link } from 'react-router-dom'
-
+import './Cards.css';
 
 
 function Cards() {
@@ -40,7 +40,7 @@ function Cards() {
             <img className='dj-equipos' src={equipo.imgUrl} alt={`imagen del equipo ${equipo.name}`} />
             <div className='text-card'>
               <p>
-                {equipo.precio}
+                $ {equipo.precio} 
               </p>
               <Link to={`/comprar/${equipo.id}`}>
                 <button id={equipo.id}>

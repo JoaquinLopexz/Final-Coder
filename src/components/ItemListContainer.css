@@ -1,3 +1,5 @@
+
+/* 
 h1{
     display: flex;
     justify-content: center;
@@ -6,8 +8,31 @@ h1{
     font-size:xxx-large;
     margin-top: 5%;
 
-}
+} */
 
 .ItemList {
     text-align: center;
+    height: 1000%;
+    width: 100%;
+    
+}
+
+.dj-image{
+    width: 1400px;
+    height: 800px;
+    
+}
+
+p1{
+    font-size:xxx-large;
+    font-family: cursive;
+    font-style: italic;
+    text-decoration: underline;
+
+}
+
+p2{
+    font-size: 35px;;
+    font-family: cursive;
+    font-style: italic;
 }

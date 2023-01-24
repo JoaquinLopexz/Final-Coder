@@ -1,0 +1,17 @@
+.container-detail-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.consola-detail-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ 
+}
+
+.dj-consolas {
+    width: 35rem;
+}

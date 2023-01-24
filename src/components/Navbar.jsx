@@ -1,11 +1,11 @@
 import "./Navbar.css";
-import CardWidget from "./CardWidget";
+import CardWidGet from "./CardWidGet";
 import { Link } from "react-router-dom"
 
 export default function Navbar () {  
     return (
         <div className="navbar-container">   
-            <h2>Nova Music</h2>
+            <h2>Nova Music</h2> <img className="logo-marca" src="https://diarium.usal.es/soniadelai/files/2012/11/musica-electronica.jpg" alt="erro-image" />
             <Link to="/">
                 <button className="navbar-button">Inicio</button>   
             </Link>
@@ -22,7 +22,7 @@ export default function Navbar () {
                 <button className="navbar-button">Profesional</button>
             </Link>
          
-            <CardWidget />
+            <CardWidGet />
         </div>
     )
 }

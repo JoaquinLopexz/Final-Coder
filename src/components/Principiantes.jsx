@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState, useContext } from 'react';
 import {GlobalContext} from "./Context/CardContext";
+import './Principiantes.css'
 
 const Principiante = () => {
     const { category } =  useParams()
@@ -25,13 +26,13 @@ const Principiante = () => {
 
     
     return (
-        <div className='styles-cards'>
+        <div className='containerConsolas'>  
             {
                 consolas && consolas.map(consola => (
-                    <div key={consola.id}>
+                    <div className='consolaCard' key={consola.id}>
                         <h3>{consola.name}</h3>
-                        <h5>{consola.category}</h5>
-                        <img src={consola.imgUrl} alt={consola.name} /> 
+                        {/* <h5>{consola.category}</h5> */}
+                        <img className='consolaImg' src={consola.imgUrl} alt={consola.name} /> 
                         <button>Comprar</button>
                     </div>
                 ))

@@ -1,0 +1,16 @@
+.containerConsolas{
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.consolaCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.consolaImg{
+    width: 15rem;
+
+};

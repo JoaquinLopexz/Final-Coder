@@ -1,11 +1,11 @@
 import React from 'react'
+import './ItemDetail.css'
 
 
-
-const ItemDetail = ({consolas}) => {
-    return (
-    <div> 
-        <div className='styles-consola'>
+const ItemDetail = ({ consolas }) => {
+  return (
+    <div className='container-detail-card'>
+      <div className='consola-detail-card'>
         <img className='dj-consolas' src={consolas?.imgUrl} alt={`imagen del equipo ${consolas?.name}`} />
         <div className='text-card'>
           <p>
@@ -14,7 +14,7 @@ const ItemDetail = ({consolas}) => {
           <button>
             Comprar
           </button>
-          
+
         </div>
       </div>
 

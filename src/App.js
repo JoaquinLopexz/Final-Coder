@@ -1,7 +1,7 @@
 import "./App.css";
-import Navbar from './components/Navbar.js';
+import Navbar from './components/Navbar.jsx';
 import ItemListContainer from './components/ItemListContainer';
-import Cards from "./components/Cards.js";
+import Cards from "./components/Cards.jsx";
 // import ClickCard from "./components/ClickCard.js";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Principiante from "./components/Principiantes";
@@ -14,7 +14,7 @@ import {useState,useContext} from 'react';
 
 function App() { 
   
-    const { productos } = useContext(GlobalContext);
+    // const { productos } = useContext(GlobalContext);
 
 
 

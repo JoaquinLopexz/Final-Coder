@@ -7,14 +7,12 @@
 }
 
 .containerCard {
-    border: 1px solid #000;
-    border-radius: 1rem;
     margin: 1rem;
+    border-radius: 1rem;
+    border-color: black;
+    border: 1px solid #000;
 }
 
-.containerCard:hover {
-    border: 1px solid red;
-}
 
 .dj-equipos {
     width: 12rem;
@@ -28,4 +26,5 @@
 
 .text-card button {
     margin-bottom: 1rem;
+    border-radius: 0, 5rem;
 }
