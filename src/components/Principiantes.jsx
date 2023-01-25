@@ -5,13 +5,17 @@ import './Principiantes.css'
 
 const Principiante = () => {
     const { category } =  useParams()
-    const [consolas, setConsolas] = useState([])
-    const {productos} = useContext(GlobalContext);
+    const [ consolas, setConsolas ] = useState([])
+    const { productos, count, setCount } = useContext(GlobalContext);
     
     // crear una función productoFiltrado
     // hacer filter de productos segun su category
     // retornar el filtrado.
     // getProductsByCategory
+
+  /*   const addProductFiltered = () => {
+        setCount( count + 1 )
+    }; */
     
      
     const getProductsByCategory = () => {
@@ -33,7 +37,7 @@ const Principiante = () => {
                         <h3>{consola.name}</h3>
                         {/* <h5>{consola.category}</h5> */}
                         <img className='consolaImg' src={consola.imgUrl} alt={consola.name} /> 
-                        <button>Comprar</button>
+                        <button >Comprar</button>
                     </div>
                 ))
             }

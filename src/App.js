@@ -6,32 +6,61 @@ import Cards from "./components/Cards.jsx";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Principiante from "./components/Principiantes";
 import { ItemDetailContainer } from "./components/ItemDetailContainer";
-import { CardContext } from "./components/Context/CardContext";
+
+import { useContext, useEffect } from "react";
 import { GlobalContext } from "./components/Context/CardContext";
-import {useState,useContext} from 'react';
+import { db } from "./db/firebase-config";
+import { collection, deleteDoc, doc, getDoc, getDocs, updateDoc } from "firebase/firestore";
 
+function App() {
+    const { setProductos } = useContext(GlobalContext);
 
+  const productCollectionRef = collection(db, "productos");
 
-function App() { 
+  const getProducts = async () => {
+    const data = await getDocs(productCollectionRef);
+    setProductos(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+  };
+  /*   const getProduct = async (id) => {
+      const docRef = doc(db, "productos", id);
+      const docSnap = await getDoc(docRef);
+      docSnap.exists()
+        ? docSnap.data()
+        : console.log("No se Encontraron los documentos");
+    }; */
+
+  /*   const deleteProduct = async (id) => {
+      const docRef = doc(db, "productos", id);
+      await deleteDoc(docRef);
+      const data = await getDocs(productCollectionRef);
+      setProductos(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
   
-    // const { productos } = useContext(GlobalContext);
-
-
+    const updateProduct = async (id) => {
+      const docRef = doc(db, "productos", id);
+      await updateDoc(docRef, {price: 200000});
+      const data = await getDocs(productCollectionRef);
+      setProductos(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    }; */
+  
+    useEffect(() => {
+      getProducts();
+    }, []);
 
   return (
     <div>
-      <CardContext>
+      
         <BrowserRouter>
           <Navbar />
           <Routes>
             <Route path="/" element={<ItemListContainer />} />
-            <Route path="/equipos" element={<Cards/>} />
-            <Route exact path="/comprar/:id" element={<ItemDetailContainer/>}/>
+            <Route path="/equipos" element={<Cards /* getProduct={getProduct} */ />} />
+            <Route exact path="/comprar/:id" element={<ItemDetailContainer />} />
             <Route path="/categoria/:category" element={<Principiante />} />
             {/* <Route path="/comprar/:cardId" element={<ClickCard />} /> */}
           </Routes>
         </BrowserRouter>
-      </CardContext>
+      
 
 
 

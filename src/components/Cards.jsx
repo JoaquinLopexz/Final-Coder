@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom'
 import './Cards.css';
 
 
-function Cards() {
+function Cards(/* { getProduct } */) {
 
-  const { productos, setProductos } = useContext(GlobalContext);
+  const { productos } = useContext(GlobalContext);
 
   // const productsCollectionRef = collection(db, "productos")
 
@@ -18,9 +18,7 @@ function Cards() {
   // }
 
   
-  
-  
-  
+
   // useEffect(() => {
   //   getProducts();
   // }, []);
@@ -43,7 +41,7 @@ function Cards() {
                 $ {equipo.precio} 
               </p>
               <Link to={`/comprar/${equipo.id}`}>
-                <button id={equipo.id}>
+                <button /* onClick={() => getProduct(equipo.id)} */ id={equipo.id}>
                   Ver producto
                 </button>
               </Link>
