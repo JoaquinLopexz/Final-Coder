@@ -6,7 +6,6 @@ import Cards from "./components/Cards.jsx";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Principiante from "./components/Principiantes";
 import { ItemDetailContainer } from "./components/ItemDetailContainer";
-
 import { useContext, useEffect } from "react";
 import { GlobalContext } from "./components/Context/CardContext";
 import { db } from "./db/firebase-config";
@@ -33,7 +32,7 @@ function App() {
    } 
   };
 
-  /*   const deleteProduct = async (id) => {
+      const deleteProduct = async (id) => {
       const docRef = doc(db, "productos", id);
       await deleteDoc(docRef);
       const data = await getDocs(productCollectionRef);
@@ -42,10 +41,10 @@ function App() {
   
     const updateProduct = async (id) => {
       const docRef = doc(db, "productos", id);
-      await updateDoc(docRef, {price: 200000});
+      await updateDoc(docRef, {precio: 200000});
       const data = await getDocs(productCollectionRef);
       setProductos(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-    }; */
+    }; 
 
   useEffect(() => {
     getProducts();
@@ -58,7 +57,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<ItemListContainer />} />
-          <Route path="/equipos" element={<Cards getProduct={getProduct} />} />
+          <Route path="/equipos" element={<Cards updateProduct={updateProduct} deleteProduct={deleteProduct} getProduct={getProduct} />} />
           <Route exact path="/comprar/:id" element={<ItemDetailContainer />} />
           <Route path="/categoria/:category" element={<Principiante />} />
           {/* <Route path="/comprar/:cardId" element={<ClickCard />} /> */}

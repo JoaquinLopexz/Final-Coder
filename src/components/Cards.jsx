@@ -5,12 +5,12 @@ import './Cards.css'
 import { Link } from 'react-router-dom'
 import './Cards.css';
 import * as React from 'react';
+import Button from '@mui/material/Button';
 
+function Cards({ getProduct, deleteProduct, updateProduct }) {
 
-function Cards({ getProduct }) {
+  const { productos } = useContext(GlobalContext);
 
-  const { productos } = useContext(GlobalContext); 
-  
   return (
     <div className="cards-container">
       {productos.map((equipo) => {
@@ -27,7 +27,13 @@ function Cards({ getProduct }) {
                 </button>
               </Link>
 
-              <button>Eliminar</button>
+              <Button onClick={() => deleteProduct(equipo.id)} id={equipo.id} color="error" variant="contained" disableElevation>
+                Eliminar
+              </Button>
+
+              <Button onClick={() => updateProduct(equipo.id)} id={equipo.id} color="error" variant="contained" disableElevation>
+                Actualizar
+              </Button>
 
             </div>
           </div>
