@@ -6,6 +6,9 @@ const CardContext = (props) => {
   const [productos, setProductos] = useState([]);
   const [count, setCount] = useState(0);
 
+  const [detail, setDetail] = useState({});
+  
+
 
   /* todo lo que queres que sea global */
 
@@ -15,7 +18,7 @@ const CardContext = (props) => {
 
   return (
     <div>
-      <GlobalContext.Provider value={{ productos, setProductos, count, setCount }}>
+      <GlobalContext.Provider value={{ productos, setProductos, count, setCount, detail, setDetail }}>
         {props.children}
       </GlobalContext.Provider>
     </div>

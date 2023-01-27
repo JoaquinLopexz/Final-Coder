@@ -3,9 +3,9 @@ import {useContext} from 'react';
 import { GlobalContext } from './Context/CardContext';
 
 
-const ItemDetail = ({ consolas }) => {
+const ItemDetail = () => {
 
-  const { count, setCount } = useContext(GlobalContext)
+  const { count, setCount, detail } = useContext(GlobalContext)
 
   const addProducts = () => {
     setCount(count + 1);
@@ -14,10 +14,10 @@ const ItemDetail = ({ consolas }) => {
   return (
     <div className='container-detail-card'>
       <div className='consola-detail-card'>
-        <img className='dj-consolas' src={consolas.imgUrl} alt={`imagen del equipo ${consolas?.name}`} />
+        <img className='dj-consolas' src={detail?.imgUrl} alt={`imagen del equipo ${detail?.name}`} />
         <div className='text-card'>
           <p>
-            {consolas?.precio}
+            {detail?.precio}
           </p>
           <button onClick={() => addProducts()}>
             Comprar

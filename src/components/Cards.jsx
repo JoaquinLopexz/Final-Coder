@@ -4,47 +4,30 @@ import { GlobalContext } from "./Context/CardContext";
 import './Cards.css'
 import { Link } from 'react-router-dom'
 import './Cards.css';
+import * as React from 'react';
 
 
-function Cards(/* { getProduct } */) {
+function Cards({ getProduct }) {
 
-  const { productos } = useContext(GlobalContext);
-
-  // const productsCollectionRef = collection(db, "productos")
-
-  // const getProducts = async () => {
-  //   const data = await getDocs(productsCollectionRef)
-  //   setProductos(data.docs.map(consola => ({ ...consola.data(), id: consola.id })));
-  // }
-
-  
-
-  // useEffect(() => {
-  //   getProducts();
-  // }, []);
-  
-  
-
-
-
-  
+  const { productos } = useContext(GlobalContext); 
   
   return (
     <div className="cards-container">
       {productos.map((equipo) => {
-
         return (
           <div key={equipo.id} className='containerCard'>
             <img className='dj-equipos' src={equipo.imgUrl} alt={`imagen del equipo ${equipo.name}`} />
             <div className='text-card'>
-              <p>
+              {/* <p>
                 $ {equipo.precio} 
-              </p>
+              </p> */}
               <Link to={`/comprar/${equipo.id}`}>
-                <button /* onClick={() => getProduct(equipo.id)} */ id={equipo.id}>
+                <button onClick={() => getProduct(equipo.id)} id={equipo.id}>
                   Ver producto
                 </button>
               </Link>
+
+              <button>Eliminar</button>
 
             </div>
           </div>
