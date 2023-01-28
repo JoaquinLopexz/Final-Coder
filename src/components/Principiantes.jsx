@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState, useContext } from 'react';
-import {GlobalContext} from "./Context/CardContext";
+import {GlobalContext} from "./Context/CartContext";
 import './Principiantes.css'
 
 const Principiante = () => {

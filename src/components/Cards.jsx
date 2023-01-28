@@ -1,6 +1,6 @@
 /*   import Card from "./Card"; */
-import { useContext, useEffect } from "react";
-import { GlobalContext } from "./Context/CardContext";
+import { useContext} from "react";
+import { GlobalContext } from "./Context/CartContext";
 import './Cards.css'
 import { Link } from 'react-router-dom'
 import './Cards.css';

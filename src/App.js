@@ -7,12 +7,14 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Principiante from "./components/Principiantes";
 import { ItemDetailContainer } from "./components/ItemDetailContainer";
 import { useContext, useEffect } from "react";
-import { GlobalContext } from "./components/Context/CardContext";
+import { GlobalContext } from "./components/Context/CartContext";
 import { db } from "./db/firebase-config";
 import { collection, deleteDoc, doc, getDoc, getDocs, updateDoc } from "firebase/firestore";
+import CartView from "./components/CartView/CartView";
+
 
 function App() {
-  const { setProductos, setDetail } = useContext(GlobalContext);
+  const { setProductos, setDetail } = useContext(GlobalContext );
 
   const productCollectionRef = collection(db, "productos");
 
@@ -21,16 +23,7 @@ function App() {
     setProductos(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   };
 
-  const getProduct = async (id) => {
-    const docRef = doc(db, "productos", id);
-    const docSnap = await getDoc(docRef);
-    // console.log(docSnap)
-    if (docSnap.exists()) {
-      setDetail(docSnap.data())
-   } else {
-     console.log("No se Encontraron los documentos");
-   } 
-  };
+  
 
       const deleteProduct = async (id) => {
       const docRef = doc(db, "productos", id);
@@ -57,10 +50,10 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<ItemListContainer />} />
-          <Route path="/equipos" element={<Cards updateProduct={updateProduct} deleteProduct={deleteProduct} getProduct={getProduct} />} />
+          <Route path="/equipos" element={<Cards updateProduct={updateProduct} deleteProduct={deleteProduct} />} />
           <Route exact path="/comprar/:id" element={<ItemDetailContainer />} />
           <Route path="/categoria/:category" element={<Principiante />} />
-          {/* <Route path="/comprar/:cardId" element={<ClickCard />} /> */}
+          <Route path="/cart" element={<CartView />} />
         </Routes>
       </BrowserRouter>
 

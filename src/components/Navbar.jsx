@@ -22,7 +22,9 @@ export default function Navbar () {
                 <button className="navbar-button">Profesional</button>
             </Link>
          
+            <Link to='/cart'>
             <CardWidGet />
+            </Link>         
         </div>
     )
 }
